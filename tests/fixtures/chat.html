@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pl"><meta charset="utf-8"><title>Makieta czatu — bez sieci</title>
+<style>
+body { background:#18181b; color:#eee; font:16px system-ui; max-width:480px; margin:40px auto; }
+.chat-input { padding:20px; border:1px solid #555; border-radius:8px; }
+[contenteditable] { padding:12px; border:1px solid #777; min-height:48px; }
+button { background:#9147ff; color:white; padding:10px 18px; border:0; border-radius:5px; margin-top:12px; }
+</style>
+<h1>Makieta czatu</h1><p>Każda „wysyłka” trafia tylko do licznika w tej stronie.</p>
+<form class="chat-input" data-a-target="chat-input-container">
+  <div role="textbox" aria-label="Wyślij wiadomość" data-a-target="chat-input" contenteditable="true"></div>
+  <button type="button" data-a-target="chat-send-button"><span>Rozmawiaj</span></button>
+</form>
+<input id="unrelated" aria-label="Inne pole">
+<script>
+window.sent = [];
+const editor = document.querySelector('[contenteditable]');
+function send(kind) { window.sent.push({kind, text: editor.textContent}); }
+document.addEventListener('keydown', event => {
+  if (event.target.matches('[data-a-target="chat-input"]') && event.key === 'Enter') {
+    event.preventDefault(); send('enter');
+  }
+});
+document.addEventListener('click', event => {
+  if (event.target.closest('[data-a-target="chat-send-button"]')) send('click');
+});
+document.addEventListener('submit', event => {event.preventDefault(); send('submit');});
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blokada czatu Twitch</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="matcher.js" defer></script>
+  <script src="settings.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <header><span class="eyebrow">TWÓJ CZAT · TWOJA LISTA</span>
+    <h1>Najpierw sprawdź.<br>Potem wyślij.</h1>
+    <p>Wiadomość z wpisem z listy zatrzyma się przed wysłaniem.</p>
+  </header>
+  <main>
+    <form id="settings">
+      <div class="label-row"><label for="terms">Lista ostrożności</label><span id="count">—</span></div>
+      <p id="terms-help" class="hint">Jeden wpis na wiersz. Blokujemy też fragmenty nazw i emotek, odmiany objęte rdzeniem, rozdzielone litery i zapis cyframi.</p>
+      <textarea id="terms" rows="6" spellcheck="false" aria-describedby="terms-help" disabled></textarea>
+      <div class="actions"><button id="save" type="submit" disabled>Zapisz listę</button><button id="reset" type="button">Lista startowa</button></div>
+      <p id="status" role="status" aria-live="polite">Wczytywanie listy…</p>
+    </form>
+    <aside><strong>Dopasowanie jest celowo szerokie.</strong> Pomijamy wielkość liter, polskie znaki, spacje i interpunkcję. Neutralne zdanie też może zostać zatrzymane — usuń zbyt szeroki wpis, jeśli tego potrzebujesz.</aside>
+  </main>
+  <footer>Lista osobista, nie oficjalny wykaz Twitcha. Nie gwarantuje uniknięcia bana. Treść wiadomości pozostaje w przeglądarce.</footer>
+</body>
+</html>

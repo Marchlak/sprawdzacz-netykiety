@@ -1,0 +1,18 @@
+[data-twitch-guard-blocked="true"] {
+  background: #55545d !important;
+  color: #d5d4da !important;
+  opacity: .65 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+.twitch-guard-warning {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid #ba9651;
+  border-radius: 6px;
+  background: #2c2416;
+  color: #ffe0a1;
+  font: 12px/1.5 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+.twitch-guard-warning[hidden] { display: none !important; }

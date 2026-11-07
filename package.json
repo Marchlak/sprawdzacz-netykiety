@@ -1,0 +1,17 @@
+{
+  "name": "blokada-twitch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lokalna blokada wybranych słów na czacie Twitcha",
+  "scripts": {
+    "test": "node --test tests/matcher.test.cjs",
+    "test:browser": "node --test tests/browser.test.cjs",
+    "test:live": "node tests/live-smoke.cjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

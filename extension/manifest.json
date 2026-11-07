@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Blokada czatu Twitch",
+  "version": "1.0.0",
+  "description": "Lokalna lista ostrożności: zatrzymuje wiadomości zawierające wybrane słowa i fragmenty na czacie Twitcha.",
+  "permissions": ["storage"],
+  "action": {"default_popup": "popup.html", "default_title": "Blokada czatu Twitch — lista słów"},
+  "content_scripts": [{
+    "matches": ["https://www.twitch.tv/*", "https://twitch.tv/*"],
+    "js": ["matcher.js", "settings.js", "content.js"],
+    "css": ["content.css"],
+    "run_at": "document_start"
+  }]
+}
